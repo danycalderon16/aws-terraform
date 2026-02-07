@@ -1,2 +1,8 @@
 */infra/.terraform
 */infra/.terraform.lock.hcl
+*/layer/python
+*/infra/artifacts/*
+*/infra/terraform.tfstate
+*/infra/terraform.tfstate.backup
+
+# Ignore all .env files
