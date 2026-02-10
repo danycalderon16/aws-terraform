@@ -1,0 +1,16 @@
+openapi: 3.0.1
+info:
+  title: Dacv API
+  version: 1.0.0
+
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: OK
+      x-amazon-apigateway-integration:
+        uri: arn:aws:apigateway:${region}:lambda:path/2015-03-31/functions/${lambda_arn}/invocations
+        httpMethod: POST
+        type: aws_proxy

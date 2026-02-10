@@ -15,3 +15,12 @@ resource "aws_lambda_function" "fastapi" {
   memory_size = 512
 
 }
+
+resource "aws_lambda_permission" "apigw" {
+  statement_id = "AllowApiGatewayInvoke"
+  action = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.fastapi.function_name
+  principal = "apigateway.amazonaws.com"
+
+  source_arn = "${var.apigateway_execution_arn}/*/*"
+}
