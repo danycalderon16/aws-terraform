@@ -10,6 +10,20 @@ paths:
       responses:
         "200":
           description: OK
+        "400":
+          description: Bad Request
+      x-amazon-apigateway-integration:
+        uri: arn:aws:apigateway:${region}:lambda:path/2015-03-31/functions/${lambda_arn}/invocations
+        httpMethod: POST
+        type: aws_proxy
+  /get_all:
+    get:
+      summary: Test endpoint
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
       x-amazon-apigateway-integration:
         uri: arn:aws:apigateway:${region}:lambda:path/2015-03-31/functions/${lambda_arn}/invocations
         httpMethod: POST

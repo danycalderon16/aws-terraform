@@ -8,6 +8,6 @@ resource "aws_api_gateway_rest_api" "this" {
 
   body = templatefile("${path.module}/openapi.yaml", {
     region = var.aws_region
-    lambda_arn = aws_lambda_function.this.arn
+    lambda_arn = var.lambda_arn
   })
 }
