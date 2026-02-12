@@ -1,5 +1,5 @@
 resource "aws_lambda_function" "fastapi" {
-  function_name = "fastapi-api"
+  function_name = "fastapi-${var.api_title}"
   runtime       = "python3.11"
   handler       = "main.handler"
   role          = var.iam_role_arn
@@ -13,6 +13,12 @@ resource "aws_lambda_function" "fastapi" {
 
   timeout = 30
   memory_size = 512
+
+  environment {
+    variables = {
+      API_TITLE = var.api_title
+    }
+  }
 
 }
 

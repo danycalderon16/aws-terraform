@@ -1,6 +1,6 @@
 resource "aws_api_gateway_rest_api" "this" {
-  name = "dacv-rest-api"
-  description = "REST API dacv-template"
+  name = var.api_title
+  description = "REST API template"
 
     endpoint_configuration {
       types = [ "REGIONAL" ]
@@ -9,5 +9,6 @@ resource "aws_api_gateway_rest_api" "this" {
   body = templatefile("${path.module}/openapi.yaml", {
     region = var.aws_region
     lambda_arn = var.lambda_arn
+    api_title = var.api_title
   })
 }

@@ -9,3 +9,8 @@ variable "iam_role_arn" {
 variable "layer_arn" {
   type = string
 }
+
+variable "api_title" {
+  description = "API Title"
+  type = string
+}

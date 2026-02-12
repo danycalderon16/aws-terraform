@@ -1,9 +1,12 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
 
+API_TITLE = os.environ.get("API_TITLE")
+
 app = FastAPI(
-    title="Dacv API"
+    title=API_TITLE
 )
 
 app.add_middleware(
